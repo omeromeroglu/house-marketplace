@@ -47,7 +47,7 @@ function Slider() {
   return (
     listings && (
       <>
-        <p className='exploreHeading'>Recommended</p>
+        <p className='exploreHeading'>En yeniler :</p>
 
         <Swiper slidesPerView={1} pagination={{ clickable: true }}>
           {listings.map(({ data, id }) => (
@@ -64,8 +64,8 @@ function Slider() {
               >
                 <p className='swiperSlideText'>{data.name}</p>
                 <p className='swiperSlidePrice'>
-                  ${data.discountedPrice ?? data.regularPrice}{' '}
-                  {data.type === 'rent' && '/ month'}
+                ₺ {data.discountedPrice ?? data.regularPrice}{' '}
+                  {data.type === 'rent' && '/ aylık'}
                 </p>
               </div>
             </SwiperSlide>

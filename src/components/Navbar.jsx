@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { ReactComponent as OfferIcon } from "../assets/svg/localOfferIcon.svg"
 import { ReactComponent as ExploreIcon } from "../assets/svg/exploreIcon.svg"
 import { ReactComponent as PersonOutlineIcon } from "../assets/svg/personOutlineIcon.svg"
+import  useAuthStatus  from "../hooks/useAuthStatus"
+
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -14,12 +16,15 @@ const Navbar = () => {
     }
   }
 
+  const { loggedIn,checkingStatus } = useAuthStatus()
+
+
   return (
     <footer className="navbar">
       <nav className="navbarNav">
         <ul className="navbarListItems">
           <li className="navbarListItem" onClick={() => navigate("/")}>
-            <ExploreIcon
+            <OfferIcon
               fill={pathMatchRoute("/") ? "#2c2c2c" : "#8f8f8f"}
               width="36px"
               height="36px"
@@ -31,27 +36,30 @@ const Navbar = () => {
                   : "navbarListItemName"
               }
             >
-              Explore 
+              İlanlar 
             </p>
           </li>
-          <li className="navbarListItem" onClick={() => navigate("/offers")}>
-            <OfferIcon
-              fill={pathMatchRoute("/offers") ? "#2c2c2c" : "#8f8f8f"}
+
+          
+          <li className="navbarListItem" onClick={() => navigate("/about")}>
+            <PersonOutlineIcon
+              fill={pathMatchRoute("/about") ? "#2c2c2c" : "#8f8f8f"}
               width="36px"
               height="36px"
             />
             <p
               className={
-                pathMatchRoute("/offers")
+                pathMatchRoute("/about")
                   ? "navbarListItemNameActive"
                   : "navbarListItemName"
               }
             >
-              Offers
+              Hakkımda
             </p>
           </li>
-          <li className="navbarListItem" onClick={() => navigate("/profile")}>
-            <PersonOutlineIcon
+          {/* Visible only after Signin as admin panel */}
+          {loggedIn && <li className="navbarListItem" onClick={() => navigate("/profile")}>
+            <ExploreIcon
               fill={pathMatchRoute("/profile") ? "#2c2c2c" : "#8f8f8f"}
               width="36px"
               height="36px"
@@ -63,9 +71,10 @@ const Navbar = () => {
                   : "navbarListItemName"
               }
             >
-              Profile
+              Panel
             </p>
           </li>
+}
         </ul>
       </nav>
     </footer>

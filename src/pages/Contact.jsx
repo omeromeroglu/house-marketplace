@@ -33,19 +33,19 @@ const Contact = () => {
   return (
     <div className="pageContainer">
       <header>
-        <p className="pageHeader">Contact Landlord</p>
+        <p className="pageHeader">İletişime Geçin</p>
       </header>
 
       {landlord !== null && (
         <main>
           <div className="contactLandlord">
-            <p className="landlordName">Contact {landlord?.name}</p>
+            <p className="landlordName">{landlord?.name}'na mesaj atın.</p>
           </div>
 
           <form className="messageFrom">
             <div className="messageDiv">
               <label htmlFor="message" className="messageLabel">
-                Message
+                Mesaj :
               </label>
               <textarea
                 name="message"
@@ -56,7 +56,7 @@ const Contact = () => {
               ></textarea>
             </div>
                 <a href={`mailto:${landlord?.email}?Subject=${searchParams.get("listingName")}&body=${message}`}>
-                    <button type="button" className="primaryButton">Send Message</button>
+                    <button type="button" className="primaryButton">Yolla</button>
                 </a>
           </form>
         </main>

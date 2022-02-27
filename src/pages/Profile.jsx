@@ -108,15 +108,15 @@ function Profile() {
   return (
     <div className='profile'>
       <header className='profileHeader'>
-        <p className='pageHeader'>My Profile</p>
+        <p className='pageHeader'>Panel</p>
         <button type='button' className='logOut' onClick={onLogout}>
-          Logout
+          Çıkış Yap
         </button>
       </header>
 
       <main>
         <div className='profileDetailsHeader'>
-          <p className='profileDetailsText'>Personal Details</p>
+          <p className='profileDetailsText'>Hesap Bilgileri</p>
           <p
             className='changePersonalDetails'
             onClick={() => {
@@ -151,13 +151,13 @@ function Profile() {
 
         <Link to='/create-listing' className='createListing'>
           <img src={homeIcon} alt='home' />
-          <p>Sell or rent your home</p>
+          <p>Yeni İlan Gir</p>
           <img src={arrowRight} alt='arrow right' />
         </Link>
 
         {!loading && listings?.length > 0 && (
           <>
-            <p className='listingText'>Your Listings</p>
+            <p className='listingText'>Yayındaki İlanlar</p>
             <ul className='listingsList'>
               {listings.map((listing) => (
                 <ListingItem

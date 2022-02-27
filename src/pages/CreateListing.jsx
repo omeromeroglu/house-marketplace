@@ -217,12 +217,12 @@ function CreateListing() {
   return (
     <div className='profile'>
       <header>
-        <p className='pageHeader'>Create a Listing</p>
+        <p className='pageHeader'>Yeni İlan Oluştur</p>
       </header>
 
       <main>
         <form onSubmit={onSubmit}>
-          <label className='formLabel'>Sell / Rent</label>
+          <label className='formLabel'>Satılık / Kiralık</label>
           <div className='formButtons'>
             <button
               type='button'
@@ -231,7 +231,7 @@ function CreateListing() {
               value='sale'
               onClick={onMutate}
             >
-              Sell
+              Satılık
             </button>
             <button
               type='button'
@@ -240,11 +240,11 @@ function CreateListing() {
               value='rent'
               onClick={onMutate}
             >
-              Rent
+              Kiralık
             </button>
           </div>
 
-          <label className='formLabel'>Name</label>
+          <label className='formLabel'>İlan Adı</label>
           <input
             className='formInputName'
             type='text'
@@ -258,7 +258,7 @@ function CreateListing() {
 
           <div className='formRooms flex'>
             <div>
-              <label className='formLabel'>Bedrooms</label>
+              <label className='formLabel'>Oda</label>
               <input
                 className='formInputSmall'
                 type='number'
@@ -271,7 +271,7 @@ function CreateListing() {
               />
             </div>
             <div>
-              <label className='formLabel'>Bathrooms</label>
+              <label className='formLabel'>Salon</label>
               <input
                 className='formInputSmall'
                 type='number'
@@ -285,7 +285,7 @@ function CreateListing() {
             </div>
           </div>
 
-          <label className='formLabel'>Parking spot</label>
+          <label className='formLabel'>Eşyalı</label>
           <div className='formButtons'>
             <button
               className={parking ? 'formButtonActive' : 'formButton'}
@@ -296,7 +296,7 @@ function CreateListing() {
               min='1'
               max='50'
             >
-              Yes
+              Evet
             </button>
             <button
               className={
@@ -307,11 +307,11 @@ function CreateListing() {
               value={false}
               onClick={onMutate}
             >
-              No
+              Hayır
             </button>
           </div>
 
-          <label className='formLabel'>Furnished</label>
+          <label className='formLabel'>Asansörlü</label>
           <div className='formButtons'>
             <button
               className={furnished ? 'formButtonActive' : 'formButton'}
@@ -320,7 +320,7 @@ function CreateListing() {
               value={true}
               onClick={onMutate}
             >
-              Yes
+              Evet
             </button>
             <button
               className={
@@ -333,11 +333,11 @@ function CreateListing() {
               value={false}
               onClick={onMutate}
             >
-              No
+              Hayır
             </button>
           </div>
 
-          <label className='formLabel'>Address</label>
+          <label className='formLabel'>Adres</label>
           <textarea
             className='formInputAddress'
             type='text'
@@ -374,7 +374,7 @@ function CreateListing() {
             </div>
           )}
 
-          <label className='formLabel'>Offer</label>
+          <label className='formLabel'>İndirim</label>
           <div className='formButtons'>
             <button
               className={offer ? 'formButtonActive' : 'formButton'}
@@ -398,7 +398,7 @@ function CreateListing() {
             </button>
           </div>
 
-          <label className='formLabel'>Regular Price</label>
+          <label className='formLabel'>Normal Fiyat</label>
           <div className='formPriceDiv'>
             <input
               className='formInputSmall'
@@ -410,12 +410,12 @@ function CreateListing() {
               max='750000000'
               required
             />
-            {type === 'rent' && <p className='formPriceText'>$ / Month</p>}
+            {type === 'rent' && <p className='formPriceText'>₺ / Aylık</p>}
           </div>
 
           {offer && (
             <>
-              <label className='formLabel'>Discounted Price</label>
+              <label className='formLabel'>İndirimli Fiyat</label>
               <input
                 className='formInputSmall'
                 type='number'
@@ -429,9 +429,9 @@ function CreateListing() {
             </>
           )}
 
-          <label className='formLabel'>Images</label>
+          <label className='formLabel'>Fotoğraflar</label>
           <p className='imagesInfo'>
-            The first image will be the cover (max 6).
+            İlk fotoğraf kapak olacaktır (max 6).
           </p>
           <input
             className='formInputFile'
@@ -444,7 +444,7 @@ function CreateListing() {
             required
           />
           <button type='submit' className='primaryButton createListingButton'>
-            Create Listing
+            İlanı Oluştur
           </button>
         </form>
       </main>

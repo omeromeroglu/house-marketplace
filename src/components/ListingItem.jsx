@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { ReactComponent as DeleteIcon } from "../assets/svg/deleteIcon.svg"
-import bedIcon from "../assets/svg/bedIcon.svg"
-import bathtubIcon from "../assets/svg/bathtubIcon.svg"
+import bedIcon from "../assets/svg/saloon.png"
+import livingroomIcon from "../assets/svg/livingroom.png"
 
 const ListingItem = ({ listing, id, onDelete }) => {
   return (
@@ -24,22 +24,22 @@ const ListingItem = ({ listing, id, onDelete }) => {
                 {listing.name}
             </p>
             <p className="categoryListingPrice">
-                ${listing.offer ? listing.discountedPrice : listing.regularPrice}
+            ₺ {listing.offer ? listing.discountedPrice : listing.regularPrice}
                 {listing.type === "rent" && " / Month"}
             </p>
             <div className="categoryListingInfoDiv">
                 <img src={bedIcon} alt="bed icon" />
                 <p className="categoryListingInfoText">
                     {listing.bedrooms > 1
-                        ? `${listing.bedrooms} Bedrooms`
-                        : "1 Bedroom"
+                        ? `${listing.bedrooms} Oda`
+                        : "1 Oda"
                     }
                 </p>
-                <img src={bathtubIcon} alt="bath" />
+                <img src={livingroomIcon} alt="bath" />
                 <p className="categoryListingInfoText">
                     {listing.bathrooms > 1
-                        ? `${listing.bathrooms} Bathrooms`
-                        : "1 Bathroom"
+                        ? `${listing.bathrooms} Salon`
+                        : "1 Salon"
                     }
                 </p>
 
