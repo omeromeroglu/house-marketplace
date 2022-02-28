@@ -74,14 +74,14 @@ const Listing = () => {
 
       <div className="listingDetails">
         <p className="listingName">
-          {listing.name}- $
+          {listing.name}- ₺ 
           {listing.offer ? listing.discountedPrice : listing.regularPrice}
         </p>
         <p className="listingLocation">{listing.location}</p>
-        <p className="listingType">For {listing.type}</p>
+        <p className="listingType"> {listing.type === "sale" ? "Satılık" : "Kiralık"}</p>
         {listing.offer && (
           <p className="discountPrice">
-            ${listing.regularPrice - listing.discountedPrice} discount
+            ₺ {listing.regularPrice - listing.discountedPrice} indirim
           </p>
         )}
         <ul className="listingDetailsList">
@@ -92,11 +92,11 @@ const Listing = () => {
           </li>
           <li>
             {listing.bathrooms > 1
-              ? `${listing.bathrooms} Bathrooms`
-              : `${listing.bathrooms} Bathroom`}
+              ? `${listing.bathrooms} Salon`
+              : `${listing.bathrooms} Oda`}
           </li>
-          <li>{listing.parking && "Parking Spot"}</li>
-          <li>{listing.furnished && "Furnished"}</li>
+          <li>{listing.parking && "Eşyalı"}</li>
+          <li>{listing.furnished && "Asansörlü"}</li>
         </ul>
         <p className="listingLocationTitle">Location</p>
 
@@ -119,13 +119,25 @@ const Listing = () => {
             </Marker>
           </MapContainer>
         </div>
+        { (
+          <a href="tel:+905063995943"
+          
+           
+            className="primaryButton"
+            style={{ marginBottom: "1rem" }}
+          >
+            Ara
+          </a>
+        )}
 
-        {auth.currentUser?.uid !== listing.userRef && (
+
+
+        {(
           <Link
             to={`/contact/${listing.userRef}?listingName=${listing.name}`}
             className="primaryButton"
           >
-            Contact Owner
+            Mail Gönder
           </Link>
         )}
       </div>

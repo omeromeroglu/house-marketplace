@@ -102,8 +102,8 @@ function Category() {
       <header>
         <p className='pageHeader'>
           {params.categoryName === 'rent'
-            ? 'Places for rent'
-            : 'Places for sale'}
+            ? 'Kiralık İlanlar'
+            : 'Satılık İlanlar'}
         </p>
       </header>
 
@@ -127,7 +127,7 @@ function Category() {
           <br />
           {lastFetchedListing && (
             <p className='loadMore' onClick={onFetchMoreListings}>
-              Load More
+              Daha fazla göster
             </p>
           )}
         </>
